@@ -1,0 +1,50 @@
+env: local
+listenPort: :1917
+
+managementUrl: http://127.0.0.1:31905
+# krisman:maef0mei3uigh1Ud30f610eaa@tcp(127.0.0.1:3310)
+# krisman:maef0mei3uigh1U@tcp(127.0.0.1:30007)
+dblist: 
+  app:
+    dbType: mysql
+    dbUrl: root:@tcp(127.0.0.1:3306)/dbbilling
+
+  fe:
+    dbType: mysql
+    dbUrl: root:@tcp(127.0.0.1:3306)/billing_fe
+
+  dashb:
+    dbType: mysql
+    dbUrl: root:@tcp(127.0.0.1:3306)/dashboard?parseTime=True
+  ocs:
+    dbType: mysql
+    dbUrl: root:@tcp(127.0.0.1:3306)/ocs?parseTime=True
+appName: AppName
+JWTSecretKey: MyJwtSecretKey
+useJWT: false
+requestTimeout: 5
+debugLevel: 4
+concurrentWaitLimit: 10
+maxConcurrentProcessData: 10
+maxBodyLogLength: 2048 #characters
+syslogFilename: backendbillingdashboard
+syslogLevel: error
+maxInvoiceRevision: 10
+maxPrintInvoice: 100
+attachmentFolder: ./data/attachment
+
+useRedis: false
+useRedisSentinel: false
+redisSentinel:
+  masterName: mylocalmaster
+  sentinelPassword:
+  sentinelUrl: 
+  - 127.0.0.1:26379
+redis:
+  redisUrl: 127.0.0.1:6379
+  redisPassword:
+  db: 0
+
+log:
+  filenamePrefix: ./log/backendbillingdashboard
+  level: debug
